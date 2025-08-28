@@ -249,7 +249,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nset -e\nexport PATH=\"$PATH:$HOME/.cargo/bin\"\ncd \"$SRCROOT/rust-fib\" && cargo build --release\n";
+			shellScript = "#!/bin/bash\nset -e\nexport PATH=\"$PATH:$HOME/.cargo/bin\"\ncd \"$SRCROOT/rust-fib\"\n\nif [ \"$PLATFORM_NAME\" = \"iphoneos\" ]; then\n    cargo build --release --target aarch64-apple-ios\n    cp target/aarch64-apple-ios/release/librust_fib.a target/release/\nelif [ \"$PLATFORM_NAME\" = \"iphonesimulator\" ]; then\n    cargo build --release --target aarch64-apple-ios-sim\n    cp target/aarch64-apple-ios-sim/release/librust_fib.a target/release/\nelse\n    cargo build --release\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -411,6 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
 				CODE_SIGN_ENTITLEMENTS = SwiftWebRTC/SwiftWebRTC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -457,6 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
 				CODE_SIGN_ENTITLEMENTS = SwiftWebRTC/SwiftWebRTC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
