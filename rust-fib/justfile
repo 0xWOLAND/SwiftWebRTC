@@ -1,0 +1,9 @@
+test:
+    rm -f /tmp/webrtc_*.sdp && cargo build --bin offer --bin answer
+    cargo run --bin answer & sleep 1 && cargo run --bin offer
+
+offer:
+    cargo run --bin offer
+
+answer:
+    cargo run --bin answer
