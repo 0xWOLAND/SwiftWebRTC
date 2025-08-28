@@ -1,5 +1,5 @@
-#ifndef RUST_FIB_H
-#define RUST_FIB_H
+#ifndef rust_ffi_H
+#define rust_ffi_H
 
 #include <stdint.h>
 #include <stdbool.h>

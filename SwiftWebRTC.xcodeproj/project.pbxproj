@@ -249,7 +249,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nset -e\nexport PATH=\"$PATH:$HOME/.cargo/bin\"\ncd \"$SRCROOT/rust-fib\"\n\nif [ \"$PLATFORM_NAME\" = \"iphoneos\" ]; then\n    cargo build --release --target aarch64-apple-ios\n    cp target/aarch64-apple-ios/release/librust_fib.a target/release/\nelif [ \"$PLATFORM_NAME\" = \"iphonesimulator\" ]; then\n    cargo build --release --target aarch64-apple-ios-sim\n    cp target/aarch64-apple-ios-sim/release/librust_fib.a target/release/\nelse\n    cargo build --release\nfi\n";
+			shellScript = "#!/bin/bash\nset -e\nexport PATH=\"$PATH:$HOME/.cargo/bin\"\ncd \"$SRCROOT/rust-ffi\"\n\nif [ \"$PLATFORM_NAME\" = \"iphoneos\" ]; then\n    cargo build --release --target aarch64-apple-ios\n    cp target/aarch64-apple-ios/release/librust_ffi.a target/release/\nelif [ \"$PLATFORM_NAME\" = \"iphonesimulator\" ]; then\n    cargo build --release --target aarch64-apple-ios-sim\n    cp target/aarch64-apple-ios-sim/release/librust_ffi.a target/release/\nelse\n    cargo build --release\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -436,11 +436,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SwiftWebRTC",
-					"$(SRCROOT)/rust-fib/target/release",
+					"$(SRCROOT)/rust-ffi/target/release",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.1;
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = "-lrust_fib";
+				OTHER_LDFLAGS = "-lrust_ffi";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bhargav.SwiftWebRTC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -483,11 +483,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SwiftWebRTC",
-					"$(SRCROOT)/rust-fib/target/release",
+					"$(SRCROOT)/rust-ffi/target/release",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.1;
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = "-lrust_fib";
+				OTHER_LDFLAGS = "-lrust_ffi";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bhargav.SwiftWebRTC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;

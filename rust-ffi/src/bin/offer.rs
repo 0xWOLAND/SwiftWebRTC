@@ -1,4 +1,4 @@
-use rust_fib::WebRTC;
+use rust_ffi::WebRTC;
 use std::{fs, thread::sleep, time::Duration};
 
 fn main() {
