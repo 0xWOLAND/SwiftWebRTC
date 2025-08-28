@@ -1,0 +1,8 @@
+# Build
+build/
+DerivedData/
+*.xcuserstate
+rust-fib/target/
+
+# macOS
+.DS_Store
