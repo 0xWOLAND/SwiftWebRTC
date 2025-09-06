@@ -5,15 +5,6 @@ use webrtc::api::APIBuilder;
 use webrtc::peer_connection::configuration::RTCConfiguration;
 
 #[no_mangle]
-pub extern "C" fn fibonacci(n: u32) -> u32 {
-    match n {
-        0 => 0,
-        1 => 1,
-        _ => fibonacci(n - 1) + fibonacci(n - 2),
-    }
-}
-
-#[no_mangle]
 pub extern "C" fn free_string(s: *mut c_char) {
     if !s.is_null() {
         unsafe { let _ = CString::from_raw(s); }

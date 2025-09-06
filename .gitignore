@@ -1,8 +1,10 @@
 # Build
 build/
+.build/
 DerivedData/
 *.xcuserstate
 rust-ffi/target/
+.swiftpm
 
 # macOS
 .DS_Store

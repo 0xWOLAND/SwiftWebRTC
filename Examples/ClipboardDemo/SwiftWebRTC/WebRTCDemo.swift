@@ -1,4 +1,5 @@
 import Foundation
+import SwiftWebRTC
 #if canImport(UIKit)
 import UIKit
 #elseif canImport(AppKit)
@@ -6,31 +7,29 @@ import AppKit
 #endif
 
 class WebRTCDemo: ObservableObject {
-    private let rtc: OpaquePointer
+    private let client = WebRTCClient()
     @Published var messages: [String] = []
     @Published var isConnected = false
     @Published var status = ""
-    private var timer: Timer?
     
     @Published var copiedOffer = false
     @Published var copiedAnswer = false
     
     init() {
-        self.rtc = webrtc_new()
+        // Subscribe to client updates
+        client.$messages.assign(to: &$messages)
+        client.$isConnected.assign(to: &$isConnected)
+        client.$status.assign(to: &$status)
     }
     
     func createOffer() {
         status = "Creating offer..."
-        webrtc_create_offer(rtc)
-        
-        if let sdpPtr = webrtc_get_local_description(rtc), 
-           let sdp = String(validatingUTF8: sdpPtr) {
-            free_string(sdpPtr)
+        if let offer = client.createOffer() {
             #if canImport(UIKit)
-            UIPasteboard.general.string = "OFFER:\n\(sdp)"
+            UIPasteboard.general.string = "OFFER:\n\(offer)"
             #elseif canImport(AppKit)
             NSPasteboard.general.clearContents()
-            NSPasteboard.general.setString("OFFER:\n\(sdp)", forType: .string)
+            NSPasteboard.general.setString("OFFER:\n\(offer)", forType: .string)
             #endif
             copiedOffer = true
             status = "Offer copied to clipboard!"
@@ -51,14 +50,11 @@ class WebRTCDemo: ObservableObject {
             return
         }
         
-        let offer = String(clipboard.dropFirst(7)) // Remove "OFFER:\n"
+        let offer = String(clipboard.dropFirst(7))
         status = "Creating answer..."
-        webrtc_set_remote_description(self.rtc, offer)
-        webrtc_create_answer(self.rtc)
+        client.setRemoteDescription(offer)
         
-        if let sdpPtr = webrtc_get_local_description(self.rtc),
-           let answer = String(validatingUTF8: sdpPtr) {
-            free_string(sdpPtr)
+        if let answer = client.createAnswer() {
             #if canImport(UIKit)
             UIPasteboard.general.string = "ANSWER:\n\(answer)"
             #elseif canImport(AppKit)
@@ -67,7 +63,6 @@ class WebRTCDemo: ObservableObject {
             #endif
             copiedAnswer = true
             status = "Answer copied! Waiting for connection..."
-            // Don't set isConnected here - wait for ICE to complete
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.isConnected = true
                 self.status = "Connected!"
@@ -90,9 +85,9 @@ class WebRTCDemo: ObservableObject {
             return
         }
         
-        let answer = String(clipboard.dropFirst(8)) // Remove "ANSWER:\n"
+        let answer = String(clipboard.dropFirst(8))
         status = "Connected!"
-        webrtc_set_remote_description(self.rtc, answer)
+        client.setRemoteDescription(answer)
         self.isConnected = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.sendTestMessages()
@@ -100,27 +95,14 @@ class WebRTCDemo: ObservableObject {
     }
     
     func sendMessage(_ message: String) {
-        webrtc_send_message(rtc, message)
+        client.sendMessage(message)
     }
     
     func refreshMessages() {
-        var count: size_t = 0
-        guard let messagesPtr = webrtc_get_messages(rtc, &count), count > 0 else { return }
-        
-        var newMessages: [String] = []
-        for i in 0..<count {
-            if let msgPtr = messagesPtr.advanced(by: i).pointee {
-                newMessages.append(String(cString: msgPtr))
-            }
-        }
-        
-        webrtc_free_messages(messagesPtr, count)
-        messages = newMessages
+        messages = client.getMessages()
     }
     
-    
     private func sendTestMessages() {
-        // Wait longer for data channel to fully open
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             for i in 1...3 {
                 let msg = "Message \(i) from \(self.copiedOffer ? "offerer" : "answerer")"
@@ -128,15 +110,9 @@ class WebRTCDemo: ObservableObject {
                 Thread.sleep(forTimeInterval: 0.5)
             }
             
-            // Refresh messages after a delay
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.refreshMessages()
             }
         }
-    }
-    
-    deinit {
-        timer?.invalidate()
-        webrtc_destroy(rtc)
     }
 }
