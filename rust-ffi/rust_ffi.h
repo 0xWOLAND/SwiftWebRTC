@@ -6,9 +6,6 @@
 
 typedef struct WebRTC WebRTC;
 
-// Fibonacci function
-uint32_t fibonacci(uint32_t n);
-
 // WebRTC API
 WebRTC* webrtc_new(void);
 void webrtc_create_offer(WebRTC* rtc);
