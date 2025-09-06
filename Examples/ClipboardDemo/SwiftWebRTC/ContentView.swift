@@ -7,13 +7,8 @@ struct ContentView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("Fibonacci(\(n)) = \(fibValue)")
-            Button("Next") {
-                fibValue = fibonacci(n)
-                n += 1
-            }
-            
-            Divider()
+            Text("WebRTC Demo")
+                .font(.title)
             
             if !rtc.isConnected {
                 VStack(spacing: 10) {

@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EB9992EE2E6AD29B0076F51F /* SwiftWebRTC in Frameworks */ = {isa = PBXBuildFile; productRef = EB9992ED2E6AD29B0076F51F /* SwiftWebRTC */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		EBCDEB5B2E603F7C00CB5938 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,14 +28,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EBCDEB492E603F7B00CB5938 /* SwiftWebRTC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftWebRTC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBCDEB492E603F7B00CB5938 /* ClipboardDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClipboardDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBCDEB5A2E603F7C00CB5938 /* SwiftWebRTCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftWebRTCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBCDEB642E603F7C00CB5938 /* SwiftWebRTCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftWebRTCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		EBA88F1E2E6AD1DB00C91B09 /* Exceptions for "SwiftWebRTC" folder in "ClipboardDemo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = EBCDEB482E603F7B00CB5938 /* ClipboardDemo */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		EBCDEB4B2E603F7B00CB5938 /* SwiftWebRTC */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EBA88F1E2E6AD1DB00C91B09 /* Exceptions for "SwiftWebRTC" folder in "ClipboardDemo" target */,
+			);
 			path = SwiftWebRTC;
 			sourceTree = "<group>";
 		};
@@ -52,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9992EE2E6AD29B0076F51F /* SwiftWebRTC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +90,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB9992EC2E6AD29B0076F51F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EBCDEB402E603F7B00CB5938 = {
 			isa = PBXGroup;
 			children = (
 				EBCDEB4B2E603F7B00CB5938 /* SwiftWebRTC */,
 				EBCDEB5D2E603F7C00CB5938 /* SwiftWebRTCTests */,
 				EBCDEB672E603F7C00CB5938 /* SwiftWebRTCUITests */,
+				EB9992EC2E6AD29B0076F51F /* Frameworks */,
 				EBCDEB4A2E603F7B00CB5938 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,7 +111,7 @@
 		EBCDEB4A2E603F7B00CB5938 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EBCDEB492E603F7B00CB5938 /* SwiftWebRTC.app */,
+				EBCDEB492E603F7B00CB5938 /* ClipboardDemo.app */,
 				EBCDEB5A2E603F7C00CB5938 /* SwiftWebRTCTests.xctest */,
 				EBCDEB642E603F7C00CB5938 /* SwiftWebRTCUITests.xctest */,
 			);
@@ -95,11 +121,10 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EBCDEB482E603F7B00CB5938 /* SwiftWebRTC */ = {
+		EBCDEB482E603F7B00CB5938 /* ClipboardDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EBCDEB6E2E603F7C00CB5938 /* Build configuration list for PBXNativeTarget "SwiftWebRTC" */;
+			buildConfigurationList = EBCDEB6E2E603F7C00CB5938 /* Build configuration list for PBXNativeTarget "ClipboardDemo" */;
 			buildPhases = (
-				EB15CBB22E60483A005FE935 /* ShellScript */,
 				EBCDEB452E603F7B00CB5938 /* Sources */,
 				EBCDEB462E603F7B00CB5938 /* Frameworks */,
 				EBCDEB472E603F7B00CB5938 /* Resources */,
@@ -111,11 +136,12 @@
 			fileSystemSynchronizedGroups = (
 				EBCDEB4B2E603F7B00CB5938 /* SwiftWebRTC */,
 			);
-			name = SwiftWebRTC;
+			name = ClipboardDemo;
 			packageProductDependencies = (
+				EB9992ED2E6AD29B0076F51F /* SwiftWebRTC */,
 			);
-			productName = SwiftWebRTC;
-			productReference = EBCDEB492E603F7B00CB5938 /* SwiftWebRTC.app */;
+			productName = ClipboardDemo;
+			productReference = EBCDEB492E603F7B00CB5938 /* ClipboardDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EBCDEB592E603F7C00CB5938 /* SwiftWebRTCTests */ = {
@@ -196,12 +222,15 @@
 			);
 			mainGroup = EBCDEB402E603F7B00CB5938;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				EB9992EB2E6AD2830076F51F /* XCLocalSwiftPackageReference "../../../SwiftWebRTC" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EBCDEB4A2E603F7B00CB5938 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EBCDEB482E603F7B00CB5938 /* SwiftWebRTC */,
+				EBCDEB482E603F7B00CB5938 /* ClipboardDemo */,
 				EBCDEB592E603F7C00CB5938 /* SwiftWebRTCTests */,
 				EBCDEB632E603F7C00CB5938 /* SwiftWebRTCUITests */,
 			);
@@ -232,28 +261,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		EB15CBB22E60483A005FE935 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\nset -e\nexport PATH=\"$PATH:$HOME/.cargo/bin\"\ncd \"$SRCROOT/rust-ffi\"\n\nif [ \"$PLATFORM_NAME\" = \"iphoneos\" ]; then\n    cargo build --release --target aarch64-apple-ios\n    cp target/aarch64-apple-ios/release/librust_ffi.a target/release/\nelif [ \"$PLATFORM_NAME\" = \"iphonesimulator\" ]; then\n    cargo build --release --target aarch64-apple-ios-sim\n    cp target/aarch64-apple-ios-sim/release/librust_ffi.a target/release/\nelse\n    cargo build --release\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		EBCDEB452E603F7B00CB5938 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -281,12 +288,12 @@
 /* Begin PBXTargetDependency section */
 		EBCDEB5C2E603F7C00CB5938 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EBCDEB482E603F7B00CB5938 /* SwiftWebRTC */;
+			target = EBCDEB482E603F7B00CB5938 /* ClipboardDemo */;
 			targetProxy = EBCDEB5B2E603F7C00CB5938 /* PBXContainerItemProxy */;
 		};
 		EBCDEB662E603F7C00CB5938 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EBCDEB482E603F7B00CB5938 /* SwiftWebRTC */;
+			target = EBCDEB482E603F7B00CB5938 /* ClipboardDemo */;
 			targetProxy = EBCDEB652E603F7C00CB5938 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -420,6 +427,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftWebRTC/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -433,20 +441,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/SwiftWebRTC",
-					"$(SRCROOT)/rust-ffi/target/release",
-				);
 				MACOSX_DEPLOYMENT_TARGET = 15.1;
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = "-lrust_ffi";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bhargav.SwiftWebRTC;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bhargav.ClipboardDemo;
+				PRODUCT_NAME = ClipboardDemo;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SwiftWebRTC-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				XROS_DEPLOYMENT_TARGET = 2.1;
@@ -467,6 +468,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftWebRTC/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -480,20 +482,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/SwiftWebRTC",
-					"$(SRCROOT)/rust-ffi/target/release",
-				);
 				MACOSX_DEPLOYMENT_TARGET = 15.1;
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = "-lrust_ffi";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bhargav.SwiftWebRTC;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bhargav.ClipboardDemo;
+				PRODUCT_NAME = ClipboardDemo;
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SwiftWebRTC-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
 				XROS_DEPLOYMENT_TARGET = 2.1;
@@ -518,7 +513,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftWebRTC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftWebRTC";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClipboardDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ClipboardDemo";
 				XROS_DEPLOYMENT_TARGET = 2.1;
 			};
 			name = Debug;
@@ -541,7 +536,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftWebRTC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SwiftWebRTC";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClipboardDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ClipboardDemo";
 				XROS_DEPLOYMENT_TARGET = 2.1;
 			};
 			name = Release;
@@ -563,7 +558,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = SwiftWebRTC;
+				TEST_TARGET_NAME = ClipboardDemo;
 				XROS_DEPLOYMENT_TARGET = 2.1;
 			};
 			name = Debug;
@@ -585,7 +580,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = SwiftWebRTC;
+				TEST_TARGET_NAME = ClipboardDemo;
 				XROS_DEPLOYMENT_TARGET = 2.1;
 			};
 			name = Release;
@@ -602,7 +597,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EBCDEB6E2E603F7C00CB5938 /* Build configuration list for PBXNativeTarget "SwiftWebRTC" */ = {
+		EBCDEB6E2E603F7C00CB5938 /* Build configuration list for PBXNativeTarget "ClipboardDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EBCDEB6F2E603F7C00CB5938 /* Debug */,
@@ -630,6 +625,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		EB9992EB2E6AD2830076F51F /* XCLocalSwiftPackageReference "../../../SwiftWebRTC" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../../SwiftWebRTC;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EB9992ED2E6AD29B0076F51F /* SwiftWebRTC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB9992EB2E6AD2830076F51F /* XCLocalSwiftPackageReference "../../../SwiftWebRTC" */;
+			productName = SwiftWebRTC;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EBCDEB412E603F7B00CB5938 /* Project object */;
 }
